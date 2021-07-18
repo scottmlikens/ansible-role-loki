@@ -101,3 +101,4 @@ promtail_scrape_config:
 promtail_target_config: []
 promtail_positions_config:
   filename: /tmp/positions.yaml
+loki_compactor_config: []
