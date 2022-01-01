@@ -1,4 +1,6 @@
 ---
+- name: Ensure unzip is installed.
+  package: "name=unzip state=present"
 - name: create {{ loki_group }} system group
   group:
     name: "{{ loki_group }}"

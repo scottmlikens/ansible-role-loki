@@ -47,6 +47,8 @@ loki_storage_config:
   filesystem:
     directory: "{{ loki_storage_dir }}/chunks"
 
+loki_wal_config:
+  dir: "{{ loki_storage_dir }}/wal"
 loki_chunk_store_config:
   max_look_back_period: 0s
 

@@ -1,7 +1,8 @@
 ---
 galaxy_info:
-  author: Waldek Maleska
+  author: Scott M. Likens
   role_name: loki
+  namespace: scottmlikens
   description: Deploy and configure Loki and Promtail.
   issue_tracker_url: https://github.com/weakcamel/ansible-role-loki/issues
   license: WTFPL
