@@ -74,6 +74,23 @@
       loop: "{{ loki_bins }}"
       notify:
         - restart loki
+  when:
+    - loki_binary_local_dir | length == 0
+    - not loki_skip_install
+
+- name: propagate locally distributed loki bins
+  copy:
+    src: "{{ loki_binary_local_dir }}/{{ item }}-{{ loki_version }}-linux-{{ go_arch }}"
+    dest: "{{ _loki_binary_install_dir }}/{{ item }}"
+    mode: 0755
+    owner: root
+    group: root
+  loop: "{{ loki_bins }}"
+  when:
+    - loki_binary_local_dir | length > 0
+    - not loki_skip_install
+  notify:
+    - restart loki
 
 - name: create systemd service unit
   template:

@@ -26,6 +26,7 @@
   when:
     - loki_version == "latest"
     - loki_binary_local_dir | length == 0
+    - not loki_skip_install
 
 - block:
     - name: Get checksum list
@@ -42,3 +43,4 @@
   delegate_to: localhost
   when:
     - loki_binary_local_dir | length == 0
+    - not loki_skip_install
