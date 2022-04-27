@@ -20,6 +20,7 @@ loki_listen_port: 3100
 promtail_listen_address: "{{ loki_listen_address }}"
 
 loki_binary_local_dir: ''
+loki_skip_install: false
 
 loki_target: all
 loki_auth_enabled: 'false'
@@ -40,7 +41,7 @@ loki_ingester_config:
     final_sleep: 0s
   wal:
     dir: "{{ loki_storage_dir }}/wal"
-  chunk_idle_period: 5m    
+  chunk_idle_period: 5m
   chunk_retain_period: 30s
 
 loki_storage_config:
