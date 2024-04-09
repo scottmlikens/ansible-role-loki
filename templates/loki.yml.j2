@@ -9,6 +9,10 @@ target: {{ loki_target }}
 {% if loki_auth_enabled %}
 auth_enabled: {{ loki_auth_enabled }}
 {% endif %}
+{% if common_config != [] %}
+common:
+  {{ common_config | to_nice_yaml(indent=2) | indent(2, False) }}
+{% endif %}
 {% if loki_server_config != [] %}
 server:
   {{ loki_server_config | to_nice_yaml(indent=2) | indent(2, False) }}
@@ -28,10 +32,6 @@ ingester_client:
 {% if loki_ingester_config != [] %}
 ingester:
   {{ loki_ingester_config | to_nice_yaml(indent=2) | indent(2, False) }}
-{% endif %}
-{% if loki_storage_config != [] %}
-storage_config:
-  {{ loki_storage_config | to_nice_yaml(indent=2) | indent(2, False) }}
 {% endif %}
 {% if loki_compactor_config != [] %}
 compactor:
